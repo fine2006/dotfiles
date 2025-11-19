@@ -1,0 +1,201 @@
+// -*- mode: jsonc -*-
+[
+  {
+    "layer": "bottom", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    //"height": 100, // Waybar height (to be removed for auto height)
+    //"width": 10, // Waybar width
+    //"spacing": 40, // Gaps between modules (4px)
+    "bar-id": "bar-0",
+    "ipc": true,
+    "mode": "dock",
+    "fixed-center": false,
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+    "modules-center": ["sway/window"],
+    "modules-right": [
+      "idle_inhibitor",
+      "power-profiles-daemon",
+      "custom/dnd",
+      "pulseaudio",
+      "network",
+      "cpu",
+      "memory",
+      "temperature",
+      "backlight",
+      //"sway/language",
+      "battery",
+      "tray",
+    ],
+    // Modules configuration
+    "sway/workspaces": {
+      "disable-scroll": false,
+      "all-outputs": true,
+      "disable-scroll-wraparound": true,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "urgent": "",
+      },
+    },
+    "sway/mode": {
+      "format": "<span style=\"italic\">{}</span>",
+    },
+    "custom/dnd": {
+      "exec": "~/.config/waybar/dnd.sh",
+      "tooltip": false,
+      "restart-interval": 1,
+      "format": "{}",
+      "on-click": "dunstctl set-paused toggle",
+    },
+    "sway/scratchpad": {
+      "format": "{icon} {count}",
+      "show-empty": false,
+      "format-icons": ["", ""],
+      "tooltip": true,
+      "tooltip-format": "{app}: {title}",
+    },
+    "sway/window": {
+      "icon": true,
+      "min-length": 50,
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": "",
+      },
+    },
+    "tray": {
+      // "icon-size": 21,
+      "spacing": 10,
+    },
+    "clock": {
+      // "timezone": "America/New_York",
+      "interval": 1,
+      "format": "{:%H:%M:%S}",
+      "tooltip-format": "<big>{:%a, %d %b %Y}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "{:%a, %d %b %Y %H:%M:%S}",
+    },
+    "cpu": {
+      "format": "{usage}% ",
+      //"tooltip": false,
+    },
+    "memory": {
+      "format": "{}% ",
+    },
+    "temperature": {
+      "thermal-zone": 5,
+      // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      "critical-threshold": 80,
+      // "format-critical": "{temperatureC}°C {icon}",
+      "format": "{temperatureC}°C {icon}",
+      "format-icons": ["", "", ""],
+    },
+    "backlight": {
+      // "device": "acpi_video1",
+      "format": "{percent}% {icon}",
+      "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"],
+    },
+    "battery": {
+      "states": {
+        // "good": 95,
+        "warning": 30,
+        "critical": 15,
+      },
+      "format": "{capacity}% {icon}",
+      "format-full": "{capacity}% {icon}",
+      "format-charging": "{capacity}% ",
+      "format-plugged": "{capacity}% ",
+      "format-alt": "{time} {icon}",
+      // "format-good": "", // An empty format will hide the module
+      // "format-full": "",
+      "format-icons": ["", "", "", "", ""],
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": "",
+      },
+    },
+    "network": {
+      // "interface": "wlp2*", // (Optional) To force the use of this interface
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "tooltip-format": "{ifname} via {gwaddr} ",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "Disconnected ⚠",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    },
+    "pulseaudio": {
+      // "scroll-step": 1, // %, can be a float
+      "format": "{volume}% {icon} {format_source}",
+      "format-bluetooth": "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
+      "format-source": "{volume}% ",
+      "format-source-muted": "",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""],
+      },
+      "on-click": "pavucontrol",
+    },
+  },
+  {
+    "layer": "bottom", // Waybar at top layer
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+    //"height": 100, // Waybar height (to be removed for auto height)
+    //"width": 10, // Waybar width
+    //"spacing": 40, // Gaps between modules (4px)
+    "bar-id": "bar-0",
+    "ipc": true,
+    "mode": "dock",
+    "fixed-center": false,
+    // Choose the order of the modules
+    "modules-right": ["clock"],
+    // Modules configuration
+    "clock": {
+      // "timezone": "America/New_York",
+      "interval": 1,
+      "format": "{:%H:%M:%S}",
+      "tooltip-format": "<big>{:%a, %d %b %Y}</big>\n<tt><small>{calendar}</small></tt>",
+      // "format-alt": "{:%a, %d %b %Y}",
+    },
+  },
+  {
+    "layer": "bottom", // Waybar at top layer
+    "position": "left", // Waybar position (top|bottom|left|right)
+    // "height": 100, // Waybar height (to be removed for auto height)
+    // "width": 10, // Waybar width
+    //"spacing": 40, // Gaps between modules (4px)
+    "bar-id": "bar-0",
+    "ipc": true,
+    "mode": "dock",
+    "fixed-center": false,
+    // Choose the order of the modules
+    "modules-center": ["clock"],
+    // Modules configuration
+    "clock": {
+      // "timezone": "America/New_York",
+      "interval": 1,
+      // "format": "{:%H:%M:%S}",
+      "tooltip-format": "<big>{:%a, %d %b %Y}</big>\n<tt><small>{calendar}</small></tt>",
+      "format": "<small>{:%a\n%d\n%b\n%Y}</small>",
+    },
+  },
+]

@@ -1,0 +1,7 @@
+require("config.base")
+require("config.diagnostic")
+print(vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.ERROR])
+require("config.lazy")
+require("config.lsp")
+require("config.keybinds")
+require("config.options")

@@ -1,0 +1,159 @@
+@import "mocha.css";
+
+window#waybar {
+  /* you can also GTK3 CSS functions! */
+  color: @text;
+  background-color: transparent;
+  border: transparent;
+}
+
+.modules-right {
+  color: @text;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: transparent;
+}
+.modules-center {
+  margin-bottom: 10px;
+}
+
+.modules-left {
+  color: @text;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 15px;
+  background: @base;
+}
+
+#workspaces button {
+  color: @text;
+  margin: 0;
+  border-radius: 15px;
+  border: none;
+}
+#workspaces button:hover {
+  background: @mauve;
+  color: @surface0;
+}
+
+#workspaces button.focused {
+  background: @mauve;
+  color: @surface0;
+  border-radius: 15px;
+}
+#mode,
+#scratchpad {
+  margin-right: 15px;
+}
+
+#window {
+  color: @text;
+  margin-top: 10px;
+  margin-right: 15px;
+  padding-right: 15px;
+  margin-left: 15px;
+  padding-left: 15px;
+  border-radius: 15px;
+  background: @base;
+}
+window#waybar.empty #window {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: transparent;
+}
+
+#clock {
+  color: @text;
+  margin: 40px 50px 40px 50px;
+  padding: 50px;
+  border-radius: 15px;
+  background: @base;
+  font-size: 150;
+}
+
+#idle_inhibitor {
+  padding: 0 15px;
+  border-radius: 15px 0 0 15px;
+  background: @red;
+  color: @surface0;
+}
+#idle_inhibitor.activated {
+  background: @green;
+}
+
+#power-profiles-daemon {
+  margin-left: 0;
+  color: @surface0;
+  padding: 0 15px;
+  border-radius: 0;
+}
+#power-profiles-daemon.balanced {
+  background: @green;
+}
+#power-profiles-daemon.power-saver {
+  background: @red;
+}
+#power-profiles-daemon.performance {
+  background: @blue;
+}
+#custom-dnd {
+  background: @peach;
+  margin-left: 0;
+  color: @surface0;
+  padding: 0 15px;
+  border-radius: 0 15px 15px 0;
+}
+#pulseaudio {
+  margin-left: 20px;
+  background: @pink;
+  color: @surface0;
+  padding: 0 15px;
+  border-radius: 15px 0 0 15px;
+}
+#pulseaudio:hover {
+  background: @rosewater;
+}
+#network,
+#cpu,
+#memory {
+  background: @pink;
+  color: @surface0;
+  padding: 0 15px;
+}
+#temperature {
+  background: @pink;
+  color: @surface0;
+  padding: 0 15px;
+  border-radius: 0 15px 15px 0;
+}
+#backlight {
+  margin-left: 20px;
+  background: @peach;
+  color: @surface0;
+  padding: 0 15px;
+  border-radius: 15px;
+}
+#battery {
+  margin-left: 20px;
+  background: @yellow;
+  color: @surface0;
+  padding: 0 15px;
+  border-radius: 15px;
+}
+#tray {
+  margin: 0 20px;
+  background: @mantle;
+  padding: 0 15px;
+  border-radius: 15px;
+}
+
+* {
+  /*color: @text;*/
+  font-family:
+    "Noto Sans Mono", "Font Awesome 6 Free", "Font Awesome 6 Brands", monospace;
+  font-size: 13px;
+}
