@@ -1,5 +1,6 @@
 *
 !*/
+!BYOD.settings
 !sway/**
 !tmux/**
 !nvim/**
